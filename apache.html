@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<title>CI347 - Apache Servers</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="main.css">
+
+<!-- Internal Styling -->
+<style>
+
+</style>
+    
+    
+<body>
+    
+<ul class="a">
+    <li class="a"><a href="index.html">Home</a></li>
+    <li class="a"><a class="active" href="apache.html">Apache</a></li>
+    <li class="a"><a href="php_sample.html">PHP</a></li>
+    <li class="a"><a href="reflection.html">Reflection</a></li>
+</ul>
+<!-- !PAGE CONTENT! -->
+<div id="header">
+    <h1>CI347 Web and Network Managment: Apache Servers</h1>
+    <h2>Paolo Espiritu</h2>
+<!-- End page content -->
+</div>
+    
+<!--src:https://www.tipsandtricks-hq.com/simple-table-of-contents-toc-using-pure-html-and-css-code9217--> 
+<div id="toc_container">
+<p class="toc_title">Contents</p>
+    <ul class="toc_list">
+        <li><a href="#a1">Apache Web Server</a></li>
+        <li><a href="#a2">Tools Used for Apache</a></li>
+        <li><a href="#a3">Apache Installation</a></li>
+        <li><a href="#a4">Running Apache</a></li>
+        <li><a href="#a5">Apache Server Security</a></li>
+        <li><a href="#a6">Apache Server Logging</a></li>  
+        <li><a href="#a7">References</a></li>
+    </ul>
+</div>
+    
+<div id="blog">
+    <div class="content">
+        
+        <a name="a1"><h3>Apache Web Server</h3></a>
+        <p>&ldquo;The Apache HTTP Server Project is an effort to develop and maintain an open-source HTTP server for modern operating systems including UNIX and Windows. The goal of this project is to provide a secure, efficient and extensible server that provides HTTP services in sync with the current HTTP standards.&rdquo; (Apache, 2020a)</p>
+        <p>This part of the site will demonstrate the installation, running, directory security, users, groups, passwords and CGI of an Apache server. The demo will include snippets of the tools used and server configuration code with commentary as well as an explanation of my understanding of the particular topic. The explanation will include my research sources, what I&rsquo;ve learnt and how the topic might be put into practice by professionals.</p>
+        
+        <a name="a2"><h4>Tools Used for Apache</h4></a>
+        <p>The tools used for the demonstrations are Windows Command Prompt (this is where and how the server is run, paused and or stopped), Notepad (to edit the configuration file), Brackets (additional application to edit the configuration file).</p>
+        
+        <a name="a3"><h4>Apache Installation</h4></a>
+        <img src="images/apache_img/fig1.PNG">
+        
+        <p>Figure 1, is an illustration of the root of the Apache directory. Within the &lsquo;conf&rsquo; folder is the main configuration file &lsquo;htdocs&rsquo;, this file is built up of three sections.</p>
+        <p>Section one otherwise known as the global environment, it contains values such as &lsquo;ServerRoot&rsquo; (which contains the file path of the root of the Apache directory), and &lsquo;Port&rsquo; this is the port number that the server listens to.</p>
+        <p>Section two, contains the main server configuration. This is where the code is written to specify the settings of the server. Finally, the third section the virtual host (this is utilized for running multiple hostnames on one server).</p>
+        <p>Once, Apache was installed the next thing to do is to modify the configuration file (which can be found within the &lsquo;conf&rsquo; folder from Figure 1, the configuration file is called &lsquo;httpd.conf&rsquo;). This file is to opened using a text editor (in the case in Figure 2, it is edited using Brackets). Line 40 in Figure 2 is changed to reflect the drive and path of the root of Apache.</p>
+        
+        <img src="images/apache_img/fig2.PNG">
+        
+        <p>Next, because the University systems are running on a server. It is important to change the port number that the Apache server will listen to, otherwise if this wasn&rsquo;t changed Apache will not start as the default port number 80 might already be used.</p>
+        
+        <img src="images/apache_img/fig3.PNG">
+        
+        <p>Figure 3, illustrates the port number has been changed within the configuration file. Once the configuration file has been changed to reflect Figure 2 and Figure 3, it&rsquo;s now time to test that the server runs.</p>
+        
+        <a name="a4"><h4>Running Apache</h4></a>
+        
+        <p>Mentioned earlier in the report the tool used to run Apache is Windows Command Prompt, once the configuration files have been edited to the correct directory and port number to listen to Apache can be run.</p>
+        
+        <p>The first step to do (once command prompt has been opened) is to change the drive to where Apache is saved, this is done by writing the drive letter and a colon like so &ldquo;D:&rdquo;. The command prompt should start a new line with the drive selected see Figure 4.</p>
+        
+        <img src="images/apache_img/fig4.PNG">
+        
+        <p>Next it is a case of specifying where the Apache directory is saved, although this time to run Apache it isn&rsquo;t to the root; the command prompt is directed to the &lsquo;bin&rsquo; directory, this is done by using the &ldquo;cd\&rdquo; keyword and after the back slash is the &lsquo;bin&rsquo; directory of the Apache file in this case, see Figure 5.</p>
+        
+        <img src="images/apache_img/fig5.PNG">
+        
+        <p>Finally, the Apache server is run by entering &ldquo;httpd&rdquo; to the command prompt. The indicator that the server is now live and running is that there should be a new line with a blinking underscore. To check that the server is running correctly, open a web browser and enter &ldquo;localhost:8080&rdquo; this directs to the &lsquo;index.html&rsquo; page saved in the &lsquo;htdocs&rsquo; configuration see Figure 6.</p>
+        
+        <img src="images/apache_img/fig6.PNG">
+        
+        <a name="a5"><h4>Apache Server Security</h4></a>
+        
+        <p>There are many steps that can be taken to keep a server secure. This demonstration will cover, creating a password protected file to store encrypted usernames and passwords. The configuration settings syntax, for grouping users&rsquo;, assigning privileges to users and or groups, and finally to compliment the configuration (as well as added security) how to structure the Apache directory.</p>
+        <p>Firstly, creating a password protected file that contains the usernames and password. The keyword used to specify the creation of this file is &lsquo;htpasswd&rsquo; followed by &ldquo;-c&rdquo; (by adding &ldquo;-c&rdquo; this specifies &ldquo;If passwdfile already exists, it is rewritten and truncated.&rdquo; (Apache, 2020b)), followed by the name of the password protected file and finally the username to be added. After pressing enter you are then prompted to enter the password for that user twice, see Figure 7.</p>
+        
+        <img src="images/apache_img/fig7.PNG">
+        
+        <p>Figure 7 illustrates the creation of the user &lsquo;testuser&rsquo;, as well as the password protected file called test which saves the username and password entered.</p>
+        
+        <img src="images/apache_img/fig8.PNG">
+        
+        <p>Figure 7 paired with the configuration in Figure 8, creates a directory that when accessed on a web-browser requires a username and password from the specified authentication file (the password protected file created from Figure 7).</p>
+        <p>Next the example of grouping users&rsquo; specific access to different HTML pages. Before any configurations are changed, it is important to structure the directory in a particular way. Within the &lsquo;htdocs&rsquo; folder is the staff page, within the staff page is the management. This first step is important as it can be configured so that staff users can only access files within the staff directory, and management can access both staff and management files, see Figure 9.</p>
+        <img src="images/apache_img/fig9.PNG">
+        
+        <p>Next, after creating the directory. Create two password protected files as well as one user per file. Like Figure 7, but with the desired credentials, see Figure 10.</p>
+        
+        <img src="images/apache_img/fig10.PNG">
+        
+        <br>
+        
+        <img src="images/apache_img/fig11.PNG">
+        
+        <p>Figure 11 and Figure 12 illustrate the syntax for specifying what file of usernames have access to particular parts of the site. As mentioned earlier, staff have access to staff files and management have access to both the staff and management files.</p>
+        
+        <img src="images/apache_img/fig12.PNG">
+        
+        <p>Figure 13, illustrates the configuration syntax for allowing only one user access to a particular directory. In this example, it is of a &lsquo;user1&rsquo; from the staff password protected file that has access to the management file.</p>
+        
+        <img src="images/apache_img/fig13.PNG">
+        
+        <p>Alias&rsquo; and CGI. Using an alias is another way of keeping the server and the files within it safe, alias&rsquo; is used to access content that does not live under the DocumentRoot. A &lsquo;ScriptAlias&rsquo; similar to an alias with the difference of the script alias&rsquo; directed directory is treated as applications and when called, the application is run.</p>
+        <p>An alias can be seen as a safety feature as the in Figure 14, the syntax is built up of the keyword &lsquo;ScriptAlias&rsquo;, next is the file path that is used to access the applications in through the web browser &ldquo;/mycgi/&rdquo; and finally the directed file path where the applications are saved &ldquo;${SRVROOT}/cgi-bin/&rdquo;, this means that the real directory doesn&rsquo;t have to be called or shown in the URL when the application is called to be run.</p>
+        
+        <img src="images/apache_img/fig14.PNG">
+        
+        <p>Within the directed application file path from Figure 14 contains a VBA script to display text when it is called on a web browser, see Figure 15 for the expected output.</p>
+        
+        <img src="images/apache_img/fig15.PNG">
+        
+        <a name="a6"><h4>Apache Server Logging</h4></a>
+        
+        <img src="images/apache_img/fig16.PNG">
+        
+        <p>Figure 16, illustrates the original and edited log format syntax. &ldquo;LogFormat&rdquo; is the keyword for this configuration, after each percent sign within the quotation mark is a letter, these letters represent a type of data (for example the letter a represents the IP address, u is the user and i is the remote logon name), these letters&rsquo; order can be rearranged any in order.</p>
+        
+        <img src="images/apache_img/fig17.PNG">
+        
+        <br>
+        
+        <img src="images/apache_img/fig18.PNG">
+        
+        <p>Figure 17 illustrates the log output with the default log configuration. Figure 18 is a demo of the altered configuration.</p>
+        
+        <a name="a7"><h4>References:</h4></a>
+        
+        <p>APACHE. 2020a. <em>Apache HTTP Server Project </em>[Online]. Available: <a href="https://httpd.apache.org/">https://httpd.apache.org/</a> [Accessed 05 February 2020].</p>
+        <p>APACHE. 2020b. <em>htpasswd - Manage user files for basic authentication </em>[Online]. Available: <a href="https://httpd.apache.org/docs/2.4/programs/htpasswd.html">https://httpd.apache.org/docs/2.4/programs/htpasswd.html</a> [Accessed 05 February 2020].</p>
+        
+        </div>
+    </div>
+    
+<!--src:https://www.tipsandtricks-hq.com/simple-table-of-contents-toc-using-pure-html-and-css-code-9217-->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+      
+
+<script>
+//for scripts
+// src for script below:https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+//Get the button:
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
+
+</body>
+</html>

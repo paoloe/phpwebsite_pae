@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<title>CI347 - Web and Network Management</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="main.css">
+
+<!-- Internal Styling -->
+<style>
+
+</style>
+    
+    
+<body>
+
+<!--Navigation Bar -->
+<ul class="a">
+  <li class="a"><a href="index.html">Home</a></li>
+  <li class="a"><a href="apache.html">Apache</a></li>
+  <li class="a"><a class="active" href="php_sample.html">PHP</a></li>
+  <li class="a"><a href="reflection.html">Reflection</a></li>
+    <!-- End of Nav bar -->
+</ul>
+      
+    
+<div id="header">
+    <h1>CI347 Web and Network Managment: PHP</h1>
+    <h2>Paolo Espiritu</h2>
+<!-- End page content -->
+</div>
+<!--src:https://www.tipsandtricks-hq.com/simple-table-of-contents-toc-using-pure-html-and-css-code9217--> 
+  <div id="toc_container">
+    <p class="toc_title">Contents</p>
+        <ul class="toc_list">
+            <li><a href="#c1">What is a Webmaster?</a></li>
+            <li><a href="#c2">PHP (Hypertext Preprocessor)</a></li>
+            <li><a href="#c3">What is PHP?</a></li>
+            <li><a href="#c4">What are the common uses of PHP?</a></li>
+            <li><a href="#c5">How is PHP Useful to a Webmaster?</a></li>
+            <li><a href="#c6">PHP Tutorials</a></li>
+            <li><a href="#c7">Prerequisite</a></li>
+            <li><a href="#c8">Tutorial 1: Using PHP to Generate Dynamic Page Content</a></li>
+            <li><a href="#c9">Tutorial 2: PHP Server-Side Language</a></li>
+            <li><a href="#c10">Tutorial 2.1: Connecting to a Webserver</a></li>
+            <li><a href="#c11">Tutorial 2.1.1: MySQL Database on Brighton Domains</a></li>
+            <li><a href="#c12">Tutorial  2.1.2: Connecting to the Webserver</a></li>
+            <li><a href="#c13">Tutorial 2.1.3: Adding Records to the Database</a></li>
+            <li><a href="#c14">Tutorial 2.1.4: Using PHP to Store Submitted Records to a Database</a></li>
+            <li><a href="#c15">Possible Issues of Using PHP to Collect Form Data</a></li>
+            <li><a href="#c16">Tutorial 3: PHP File Handling / Management</a></li>
+            <li><a href="#c18">PHP Examples</a></li>
+            <li><a href="#c17">References</a></li>
+        </ul>
+    </div>
+
+      
+<div id="blog">
+    
+    <div class="content">
+        
+        <a name="c1"><h3>What is a Webmaster?</h3></a>
+        <p>In this web-based tutorial for PHP, there will be a lot of reference to a &#39;Webmaster&#39;. It is important that it is defined as it plays an important part in the explanation aspect of this tutorial.</p>
+        
+        <p>Webmaster, in this context are the people and or person that manages the webserver. They will often be referred to in this tutorial. Their varying skill level, experience, company and company size affect what features are suitable for them or their situation, it is important that this is considered as not all the features might not be suitable for all of them.
+        </p>
+        
+        <p><q>Webmasters manage web pages, sites and applications. They coordinate the design, development, deployment and maintenance of a company&#39;s online presence.</q> (jobisjob, 2020).</p>
+        
+        <a name="c2"><h3>PHP (Hypertext Preprocessor)</h3></a>
+        
+        <a name="c3"><h4>What is PHP?</h4></a>
+        
+        <p>Sklar (2016) describes PHP to be a programming language which is run on a webserver that is typically accessed by many users at one time. It is a server-side language as all the processes it carries out are within in the server, this is best illustrated in Figure 1. (Sklar, 2016).</p>
+        
+        <img src="images/img_figs/fig1_1.PNG" alt="fig1">
+        
+        <a name="c4"><h3>What are the common uses of PHP?</h3></a>
+        
+        <p>PHP is commonly used for creating a dynamic website. Companies such as Facebook, Wikipedia and Wordpress makes use of PHP (CyberCraft, 2020),  one of features of PHP and one of the reasons why such large companies make use of it is, its ability to interact with the underlying data that a server has access to, be it that data is on a disk drive or a database.</p>
+        
+        <p>Facebook for example has billions of users, as a result of this, records of the users are kept in a database. PHP is great for interaction with databases and webservers it can retrieve data from the database and apply it to a template, this can be seen in Figure 2, highlighted in red are the different bits of information retrieved from their database to then be displayed on to a template (the template being the page).</p>
+        
+        <img src="images/img_figs/fig2.PNG" alt="fig2">
+        
+        <p>Within the example of Figure 2 there are multiple processes that PHP carryout, it includes the reading the request, processing the request, contacting the relevant data layer and finally sending the response for the server to respond to the client.</p>
+        
+        <a name="c5"><h3>How is PHP Useful to a Webmaster?</h3></a>
+        
+        <p>Mentioned briefly earlier in this report, PHP is a server-side language, what is a server side language? Sam OverMars&#39; (2020) answer to this was <q>It is a programming language that is designed to run on a server.</q> Because it is tailored for this reason it has benefits such as, <q>it allows us to efficiently deliver information tailored for individual users and thereby create a much better user experience.</q> </p>
+        
+        <p>One of the main reasons as to why PHP is useful to a Webmaster is the ability in which they are granted to create a dynamic website. It allows for a fully customised experience for each of the users of the website, this can be seen demonstrated in websites such as Facebook, YouTube and Amazon where the more the user utilizes these websites, the more that the site becomes personalised to their specific use. </p>
+        
+        <p>Part of how these websites are able to deliver a unique experience for each user, is the capability that PHP allows for data analysis, PHP <q>can be used to refine responses based on analysis of this data.</q> (Mozilla, 2020) Given the example of Facebook marketplace, the items for sale that a user will see more of will be based on their previous searches and items that they&#39;ve looked at.</p>
+        
+        <a name="c6"><h3>PHP Tutorials</h3></a>
+        
+        <a name="c7"><h4>Prerequisite</h4></a>
+        
+        <p>PHP is a server-side language, it needs to be run on a web server that supports PHP. In the examples below, the webserver utilised is Brighton Domains. PHP is supported by many web servers one of them is the Apache web server, <a href="apache.html">Click Here</a> to find out more about it.</p>
+        
+        <p>This tutorial is intended for Webmaster, it will include topics touched on earlier in this report and large part of the tutorial and demonstrations will focus on making a website more dynamic using PHP.</p>
+        
+        <p>Each tutorial in this section will consist of a basic explanation of what will be taught (for e.g., generating dynamic page content), how the feature is useful to a Webmaster, which Webmasters the feature would be most useful to and finally a tutorial and demonstration of how to implement the feature to the server and or site.</p>
+        
+        <p>This tutorial will utilize other web development languages such as HTML, CSS and JavaScript to best demonstrate realistic example of PHP.</p>
+        
+        <a name="c8"><h4>Tutorial 1: Using PHP to Generate Dynamic Page Content</h4></a>
+        
+        <p>What makes a webpage dynamic? Doteasy.com defines a dynamic page to be one that that changes:  <q>A dynamic web page is a web page that displays different content each time it&#39;s viewed</q> (doteasy.com, 2020) Usually, ecommerce, social media and blog sites are considered dynamic websites, as content is regularly added by users these websites have a template that the new content is applied to which is then displayed to the site.</p>
+        
+        <p>The example below, allows a webmaster to create, update and or edit the header and footer of multiple pages at once. This concept of being able to replicate content that should be on multiple pages with one line saves any webmaster time and reduces the possibility for error.</p>
+        
+        <img src="images/img_figs/fig3.PNG" alt="fig3">
+        <br>
+        <img src="images/img_figs/fig4.PNG" alt="fig4">
+        <br>
+        <img src="images/img_figs/fig5.PNG" alt="fig5">
+        
+        <p>Figure 3, Figure 4 and Figure 5 (Cabibbo, 2020). Illustrates a simple three-page site with identical headers and footers. If there was a change the webmaster would need to change the content for all the pages one by one.</p>
+        
+        <p>The PHP solution to this is using a PHP function <q>file_get_contents()</q> which copies content specified, to another page. Below are the steps to carry out for the example above:</p>
+        
+        <ol>
+            <li>Copy the code header code as a text file and save in the website files directory</li>
+            <li>Change the header and footer syntax of the site pages to now use the <q>file_get_contents()</q> function, see Figure 6 (Cabibbo, 2020)</li>
+            <li>Repeat step two for all the web pages that make use of the header and footer, see Figure 7 (Cabibbo, 2020).</li>
+        </ol>
+        
+        
+        <img src="images/img_figs/fig6.PNG" alt="fig6">
+        <br>
+        <img src="images/img_figs/fig7.PNG" alt="fig7">
+        
+        <p>As a result of using this PHP feature, when the webmaster needs to make changes to the header or footer it is a case of updating only two files instead of all the site pages. This example is one for all webmasters, it will be useful and will save time in maintenance and updating of sites.</p>
+        
+        <a name="c9"><h4>Tutorial 2: PHP Server-Side Language</h4></a>
+        
+        <p>This section of the tutorial will focus on one of the main uses of PHP in a webserver. It is essential that every webmaster at all skill and experience levels are familiar with how PHP is used to interact with a server database.</p>
+        
+        <p>This tutorial will be broken down into three sub sections. The first will be a demo of how to connect to a MySQL database (within this will be another sub-section of how to create a MySQL database and initial table, using Brighton Domains).</p>
+        
+        <p>Next, there will be a section on how to add records to the database (from the first section) to finally tie into the final segment where both step one (connecting to the database) and two (adding records to the database) are combined to use PHP create forms and send the data to the database.</p>
+
+        <a name="c10"><h4>Tutorial 2.1: Connecting to a Webserver</h4></a>
+
+        <a name="c11"><h4>Tutorial 2.1.1: MySQL Database on Brighton Domains</h4></a>
+
+        <p>Before a connection can be made to the server to then access, add and or edit data, there must be a compatible database. In this example it is MySQL on Brighton Domains, the steps that need to be carried out are&hellip; create a database and an initial table, add a user to that database and finally add restrictions to that user. When all these steps are complete, you can continue.</p>
+
+        <p>Follow the instructions below to create add a database to your Brighton Domains server:</p>
+
+            <ol>
+                <li>Click on &lsquo;MySQL Database Wizard&rsquo; see Figure 8</li>
+                <li>Type a name for the database, and click on &lsquo;next step&rsquo; see Figure 9</li>
+                <li>Type in a username and password, click on &lsquo;create user&rsquo; see Figure 10</li>
+                <li>Add relevant privileges for that user, click no &lsquo;next step&rsquo; see Figure 11</li>
+                <li>Go back to Brighton Domains home, click on &lsquo;phpMyAdmin&rsquo; see Figure 12</li>
+                <li>On the left-hand side, select the Database created see Figure 13</li>
+                <li>Type in a name for the table and specify number of columns, see Figure 14</li>
+                <li>Name each column and specify the relevant data type and length, see Figure 15</li>
+            </ol>
+        
+        <img src="images/img_figs/fig8.PNG" alt="fig8" width="800px">
+        <br>
+        <img src="images/img_figs/fig9.PNG" alt="fig9">
+        <br>
+        <img src="images/img_figs/fig10.PNG" alt="fig10">
+        <br>
+        <img src="images/img_figs/fig11.PNG" alt="fig11">
+        <br>
+        <img src="images/img_figs/fig12.PNG" alt="fig12">
+        <br>
+        <img src="images/img_figs/fig13.PNG" alt="fig13">
+        <br>
+        <img src="images/img_figs/fig14.PNG" alt="fig 14">
+        <br>
+        <img src="images/img_figs/fig15.PNG" alt="fig15">
+        
+        <a name="c12"><h4>Tutorial  2.1.2: Connecting to the Webserver</h4></a>
+        
+        <img src="images/img_figs/fig16.PNG" alt="fig16">
+        
+        <p>Figure 16, illustrates the basic PHP syntax to connect to the server and simply display a message whether the connection has been successful, along with the syntax is commentary to explain what each line of code is doing.</p>
+        
+        <p>Line eight, nine and 10 in Figure 16, are the variables that will need to be altered to specify the server to connect to. Use the user credentials created from Tutorial 2.1.1. If done correctly you should get a webpage that says, <q>Connected Successfully</q>, see Figure 17.</p>
+        
+        <img src="images/img_figs/fig17.PNG" alt="fig17">
+        
+        <a name="c13"><h4>Tutorial 2.1.3: Adding Records to the Database</h4></a>
+        
+        <img src="images/img_figs/fig18.PNG" alt="fig18">
+        
+        <p>Figure 18 illustrates the syntax for adding data to the table previously created, again including commentary of what each line of code does. Similarly, to the earlier tutorial there is a section that connects to the database from line 16 to 18.</p>
+        
+        <p>Lines 29 to 30, after <q>$sql=</q> is where the SQL statement would be inserted, in this case code that populates the &#39;form_info&#39; table. Run the code above to test that a successful connection can be made and that the table can be populated, once run the message displayed should be like Figure 19.</p>
+        
+        <img src="images/img_figs/fig19.PNG" alt="fig19">
+        <br>
+        <img src="images/img_figs/fig20.PNG" alt="fig20">
+        
+        <p>Finally check, using phpMyAdmin that the records are in the table, see Figure 20. After completing this tutorial and getting the page that confirms everything has been done accurately, see Figure 19. You may begin with the next tutorial.</p>
+        
+        
+        <a name="c14"><h4>Tutorial 2.1.4: Using PHP to Store Submitted Records to a Database</h4></a>
+        
+        <img src="images/img_figs/fig21.PNG" alt="fig21">
+        
+        <p>Figure 21 illustrates a modified version of an answer provided by (Hasan, 2020) from a Stack Overflow thread. It is a combination of all the code from tutorials 2.1.1 to 2.1.3. As well as the code, it includes commentary of what each line of code is doing.</p>
+        
+        <p>Lines 45 to 60 is how the form is displayed, if you are modifying this for your own form, you&#39;ll need to change three items per input box. The first is the label, next is the type (make sure it corresponds with the type specified in the database) and finally the place holder name (this is how PHP determines what value to send to the servers.</p>
+        
+        <p>To break down further how the SQL statement from Figure 21, lines 29 to 40 is built up, see Figure 22, the statement is broken down and labelled. Modify relatively to your database table name, note that the statement placeholders must match the labels from your form.</p>
+        
+        <img src="images/img_figs/fig22.PNG" alt="fig22">
+        
+        <a name="c15"><h4>Possible Issues of Using PHP to Collect Form Data</h4></a>
+        
+        <p>Note, the code in the previous tutorial does not consider security features. It is not safe from issues such as SQL injection (SQL injection, is malicious code that is &#39;injected&#39; into your server to either cause damage or get hold of confidential data information).</p>
+        
+        <p>A common way of people being able to do this is through forms on websites. There have been many famous and severe cases that have occurred to large public and private companies whereby people have defaced websites, exposed confidential information and even a company like Starbucks has been a victim of this issue, whereby a SQL injection allowed access to the Starbucks accounting database (codecurmudgeon, 2020).</p>
+        
+        <p>There are measures that can be taken to improve the security of a PHP page to prevent SQL injection. <q>Use prepared statements and parameterized queries.</q> (PeeHaa, 2019) This answer is one of the most popular answers on Stack Overflow. It simply means, any code that is sent to the server database uses a format that has been prepared by the webmaster and the input of the users are parameters. This means that the user input is only what is required from them for example, if the input was a first name, this would be a parameter slotted into a pre-prepared statement.</p>
+        
+        <p>As PHP is a server-side language, it is important that security is always considered as it is a broker between the client and the server in a request and send process. Any webmaster who chooses to use PHP (or any server languages) needs to prioritise what security measures to incorporate to keep their server safe.</p>
+        
+       <a name="c16"><h4>Tutorial 3: PHP File Handling / Management</h4></a> 
+        
+        <p>PHP allows a webmaster to organise the way in which files within the server are accessed. Servers typically hold many files that can be accessed by users, staff and admin. It is important that if a site were to give the ability to the user of being able to access, read and or edit files on the server, that it is done with extra care. </p>
+        
+        <p>This feature could be useful to webmasters that are part of a company that has services that upload paid publications to their website. PHP allows the permitted users access to the publications that they are subscribed to.</p>
+        
+        <p>&#39;readFile()&#39; is another PHP function that allows a client to view and read files. This is a great secure way for the webmaster to allow a client only to read the files.</p>
+        
+        <p>To allow a user to read a text file follow the steps below:</p>
+        
+        <ol>
+            <li>Create or upload the text file into server, see Figure 23</li>
+            <li>Create a new PHP page, see Figure 24</li>
+            <li>Add code to the PHP page (lines five to seven) in line six make sure to change the text within the quotation mark to the name and path of the text file, see Figure 25</li>
+            <li>When the PHP is opened, the text within the text file should be displayed, see Figure 26 </li>
+        </ol>
+        
+        <img src="images/img_figs/fig23.PNG" alt="fig23" width="80%">
+        <img src="images/img_figs/fig24.PNG" alt="fig24" width="80%">
+        <img src="images/img_figs/fig25.PNG" alt="fig25" width="80%">
+        <img src="images/img_figs/fig26.PNG" alt="fig26" width="80%">
+        
+        <p>&#39;fopen()&#39; function is similar to &#39;readFile()&#39; but allows the webmaster freedom in specifically assigning what users are allowed to do with the file, see Figure 27 (w3schools, 2020).</p>
+        
+        <img src="images/img_figs/fig27.PNG" alt="fig27" width="80%">
+        <img src="images/img_figs/fig28.PNG" alt="fig28" width="80%">
+        
+        <p>Figure 28 (w3schools, 2020), illustrates the code sample provided in a W3Schools tutorial making use of &#39;fOpen()&#39; function with specified permissions. Lines nine to 15 opens and edits the specified text file from the server.</p>
+        
+        <p>Line 10, contains the keyword with two parameters, the first is the file name and path of the text file (change this so it reflects the file you would like to modify), secondly it is the permission granted to the user in this case <q>w</q> (similarly change this to reflect the permissions you would like to grant), refer to Figure 27 for letter definitions.</p>
+        
+        <p>Lines 17 to 22 is again using the keyword &#39;fOpen&#39; to specify the file to open as well as the permissions to use, in this process it is just being opened to display the result of the process above. Figure 29 illustrates the output of the code from Figure 29.</p>
+        
+        <img src="images/img_figs/fig29.PNG" alt="fig29" width="80%">
+        
+        <p>Code provided in Figure 28, can be modified to replace the input text with placeholders so the user can input their own text. This is a feature is specifically for webmasters that need an option of showing files to a user. It can be secure if used correctly with the correct specified permissions, it is a simple and quick way for any webmaster to show users a document on the server.</p>
+        
+        <a name="c18"><h4>PHP Demo Examples:</h4></a>
+        
+        <p>Click on a link below to execute the PHP script.</p>
+        
+        <a href="php_sample.php">PHP Sample: Connecting to server</a><br>
+        <a href="php_sample2.php">PHP Sample: Adding records to a database</a><br>
+        <a href="php_sample3.php">PHP: Populating a database with data from a form</a><br>
+        <a href="php_sample4.php">PHP: Read a text file on the server</a><br>
+        <a href="php_sample5.php">PHP: Modify a text file on the server</a><br>
+        
+        <a name="c17"><h4>References:</h4></a>  
+    
+        <p>CABIBBO, A. 2020. <em>Web Development for Bioinformatics Web.</em></p>
+        <p>CODECURMUDGEON. 2020. <em>SQLi Hall-of-Shame </em>[Online]. Available: <a href="https://codecurmudgeon.com/wp/sql-injection-hall-of-shame/">https://codecurmudgeon.com/wp/sql-injection-hall-of-shame/</a> [Accessed 3 February 2020].</p>
+        <p>CYBERCRAFT. 2020. <em>Top 10 Projects Developed With PHP Technology </em>[Online]. Available: <a href="https://cybercraftinc.com/blog/top-10-projects-developed-with-php-technology">https://cybercraftinc.com/blog/top-10-projects-developed-with-php-technology</a> [Accessed 1 Nov 2019].</p>
+        <p>DOTEASY.COM. 2020. <em>WHAT IS A DYNAMIC WEB PAGE? </em>[Online]. Available: <a href="https://www.doteasy.com/web-hosting-articles/what-is-a-dynamic-web-page.cfm">https://www.doteasy.com/web-hosting-articles/what-is-a-dynamic-web-page.cfm</a> [Accessed 29 January 2020].</p>
+        <p>HASAN, S. M. U. 2020. <em>PHP: Inserting Values from the Form into MySQL </em>[Online]. Available: <a href="https://stackoverflow.com/a/39654637">https://stackoverflow.com/a/39654637</a> [Accessed 30 January 2020].</p>
+        <p>JOBISJOB. 2020. <em>Webmaster job description Post Job </em>[Online]. Available: <a href="https://www.jobisjob.co.uk/webmaster/job-description">https://www.jobisjob.co.uk/webmaster/job-description</a> [Accessed 20 December 2019].</p>
+        <p>MOZILLA. 2020. <em>Introduction to the server side </em>[Online]. Available: <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction">https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Introduction</a> [Accessed 27 January 2020].</p>
+        <p>OVERMARS, S. 2020. <em>What does server side language mean? </em>[Online]. Available: <a href="https://www.quora.com/What-does-server-side-language-mean">https://www.quora.com/What-does-server-side-language-mean</a> [Accessed 27 January 2020].</p>
+        <p>PEEHAA. 2019. <em>How can I prevent SQL injection in PHP? </em>[Online]. Stack Overflow. Available: <a href="https://stackoverflow.com/a/60496">https://stackoverflow.com/a/60496</a> [Accessed].</p>
+        <p>SKLAR, D. 2016. <em>Learning PHP: A Gentle Introduction to the Web&#39;s Most Popular Language</em>, O&#39;Reilly.</p>
+        <p>W3SCHOOLS. 2020. <em>PHP File Open/Read/Close </em>[Online]. Available: <a href="https://www.w3schools.com/php/php_file_open.asp">https://www.w3schools.com/php/php_file_open.asp</a> [Accessed 4 February 2020].</p>
+    </div>
+
+</div>
+<!--src:https://www.tipsandtricks-hq.com/simple-table-of-contents-toc-using-pure-html-and-css-code-9217-->
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+      
+<script>
+//for scripts
+
+// src for script below:https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+//Get the button:
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
+
+</body>
